@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Todo">
+<meta name="theme-color" content="#EEF1F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F131C" media="(prefers-color-scheme: dark)">
+<title>Todo</title>
+<style>
+  :root {
+    --bg: #EEF1F6;
+    --surface: #FFFFFF;
+    --ink: #19202E;
+    --sub: #6B7488;
+    --faint: #A3ABBC;
+    --line: #E4E8F0;
+    --accent: #3347D1;
+    --accent-ink: #FFFFFF;
+    --danger: #D6453D;
+    --warn: #D97706;
+    --nav: rgba(255, 255, 255, .85);
+    --shadow: 0 10px 26px -16px rgba(40, 50, 110, .38);
+    --blob1: #7C8CFF;
+    --blob2: #FF9CC6;
+    --blob-o: .38;
+    --c: var(--accent);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F131C;
+      --surface: #181E2B;
+      --ink: #EAEEF7;
+      --sub: #98A1B7;
+      --faint: #5A6379;
+      --line: #262E3F;
+      --accent: #7C8CFF;
+      --accent-ink: #0F131C;
+      --danger: #FF7A72;
+      --warn: #FBBF24;
+      --nav: rgba(24, 30, 43, .85);
+      --shadow: 0 10px 26px -16px rgba(0, 0, 0, .7);
+      --blob1: #4553D8;
+      --blob2: #8A3F7A;
+      --blob-o: .3;
+    }
+  }
+  .h0 { --c: #3347D1; } .h1 { --c: #8B5CF6; } .h2 { --c: #0E9F9A; }
+  .h3 { --c: #E0488B; } .h4 { --c: #E8730C; } .h5 { --c: #2E9B5A; }
+  @media (prefers-color-scheme: dark) {
+    .h0 { --c: #7C8CFF; } .h1 { --c: #B197FC; } .h2 { --c: #3CC9C2; }
+    .h3 { --c: #FF7FB6; } .h4 { --c: #FFA24D; } .h5 { --c: #5FD38D; }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  input {
+    user-select: auto;
+    -webkit-user-select: auto;
+  }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+    touch-action: manipulation;
+    overscroll-behavior-y: none;
+  }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; }
+  svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- background ---------- */
+  .bgdeco { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .bgdeco i { position: absolute; width: 320px; height: 320px; border-radius: 50%; filter: blur(70px); opacity: var(--blob-o); }
+  .bgdeco i:nth-child(1) { background: var(--blob1); top: -110px; right: -90px; animation: drift1 22s ease-in-out infinite alternate; }
+  .bgdeco i:nth-child(2) { background: var(--blob2); bottom: 90px; left: -
